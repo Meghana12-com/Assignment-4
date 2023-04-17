@@ -1,0 +1,25 @@
+import math
+
+class Shape:
+    def _init_(self, shape_type, dimension1, dimension2=None):
+        self.shape_type = shape_type
+        self.dimension1 = dimension1
+        self.dimension2 = dimension2
+
+    def area(self):
+        if self.shape_type == "circle":
+            return math.pi * self.dimension1 ** 2
+        elif self.shape_type == "rectangle":
+            return self.dimension1 * self.dimension2
+
+shape_type = input("Enter shape type (circle or rectangle): ")
+
+if shape_type == "circle":
+    radius = float(input("Enter radius: "))
+    shape = Shape(shape_type, radius)
+elif shape_type == "rectangle":
+    length = float(input("Enter length: "))
+    width = float(input("Enter width: "))
+    shape = Shape(shape_type, length, width)
+
+print("Area of", shape.shape_type, "is", shape.area())
